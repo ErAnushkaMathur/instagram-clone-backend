@@ -10,7 +10,6 @@ A backend application built with Node.js, Express.js, and MongoDB that provides 
 * Create new posts
 * Fetch all posts
 * Fetch individual post details
-* Follow and unfollow users
 * Image upload integration
 * MongoDB database integration
 
@@ -40,7 +39,6 @@ Create a `.env` file and add:
 ```env
 MONGODB_URI=your_database_url
 JWT_SECRET=your_secret_key
-IMAGEKIT_PUBLIC_KEY=your_key
 IMAGEKIT_PRIVATE_KEY=your_key
 ```
 
