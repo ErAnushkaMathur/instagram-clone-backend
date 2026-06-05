@@ -6,12 +6,13 @@ A backend application built with Node.js, Express.js, and MongoDB that provides 
 
 * User registration and login
 * JWT-based authentication and authorization
-* User data management with MongoDB
 * Create new posts
 * Fetch all posts
 * Fetch individual post details
-* Image upload integration
-* MongoDB database integration
+* Like and unlike posts
+* Follow and unfollow users
+* Image upload integration using ImageKit
+* MongoDB database integration with Mongoose
 
 ## Tech Stack
 
