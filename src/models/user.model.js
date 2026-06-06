@@ -17,7 +17,12 @@ const userSchema = new mongoose.Schema({
   },
   bio : "String",
   profileImage : {
-    type : "String"}
+    type : "String"
+  },
+   isPrivate : {
+    type : Boolean,
+    deafault : false
+   } 
 }) 
 
 const userModel = mongoose.model("user", userSchema)

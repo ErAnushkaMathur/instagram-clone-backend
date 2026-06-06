@@ -25,4 +25,11 @@ postRouter.get("/details/:postId",identifyUser,postController.getPostDetailsCont
 
 postRouter.post("/like/:postId" , identifyUser, postController.likePostController)
 
+/**
+ * @route POST/api/posts/unlike/:postId
+ * @description unlike a post with the id provided in the request params.
+ */
+
+postRouter.post("/unlike/:postId", identifyUser, postController.unlikePostController)
+
 module.exports = postRouter

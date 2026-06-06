@@ -96,9 +96,39 @@ async function likePostController(req , res){
    })
 }
 
+async function unlikePostController(req,res){
+  const username = req.user.username
+   const postId = req.params.postId
+   
+   const post = await postModel.findById(postId)
+
+   if(!post){
+      return res.status(404).json({
+         message : "Post not found"
+      })
+   }
+
+   const isLiked = await likeModel.findOne({
+    user: username,
+    post : postId
+   })
+
+   if(!isLiked){
+    return res.status(404).json({
+    message: "Like not found"
+  })
+   }
+
+   await likeModel.findByIdAndDelete(isLiked._id)
+    return res.status(200).json({
+      message : `You have unliked the post`
+   })
+   }
+
 module.exports = {
   createPostController,
   getPostCotroller,
   getPostDetailsController,
-  likePostController
+  likePostController,
+  unlikePostController
 }
