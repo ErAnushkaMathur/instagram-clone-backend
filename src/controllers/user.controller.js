@@ -65,6 +65,22 @@ async function unfollowUserController(req, res){
    })
 }
 
+async function sendRequestController(req, res){
+    const followerUsername = req.user.username
+   const followeeUsername = req.params.username
+
+   const followee = await userModel.findOne({
+   username: followeeUsername
+})
+
+   if(!followee){
+      return res.status(404).json({
+         message : "User Not Found"
+      })
+   }
+
+   
+}
 
 module.exports = {
   followUserController, unfollowUserController }

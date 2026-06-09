@@ -115,7 +115,7 @@ async function unlikePostController(req,res){
 
    if(!isLiked){
     return res.status(404).json({
-    message: "Like not found"
+    message: "post is already unliked"
   })
    }
 

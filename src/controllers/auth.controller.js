@@ -1,9 +1,9 @@
-const userModel = require("../models/user.model")
+const userModel = require("../models/userModel")
 const jwt = require("jsonwebtoken")
 const bcrypt = require("bcryptjs")
 const crypto = require("crypto")
 async function loginController (req, res)  {
-  const { email, username, password } = req.body
+  const { email, username, password , isPrivate} = req.body
   const user = await userModel.findOne({
     $or: [
       {
@@ -49,7 +49,7 @@ async function loginController (req, res)  {
 }
 
 async function registerController (req, res)  {
-  const { email, username, password, bio, profileImage } = req.body
+  const { email, username, password, bio, profileImage, isPrivate } = req.body
   console.log(req.body)
 
   // const isUserExistByEmail = await  userModel.findOne({email})
@@ -80,7 +80,7 @@ async function registerController (req, res)  {
 
   const hash =await bcrypt.hash(password , 10)
   const user = await userModel.create({
-    email, username, password: hash, bio, profileImage
+    email, username, password: hash, bio, profileImage, isPrivate
   })
 
   const token = jwt.sign({
@@ -97,7 +97,8 @@ async function registerController (req, res)  {
       emai: user.email,
       username: user.username,
       bio: user.bio,
-      profileImage: user.profileImage
+      profileImage: user.profileImage,
+      isPrivate : user.isPrivate
     }
   })
 

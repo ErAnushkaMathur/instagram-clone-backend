@@ -2,17 +2,17 @@ const mongoose = require("mongoose")
 
 const followSchema = new mongoose.Schema({
   Follower : {
-  type : "String",
+  type : String,
 },
   Followee: {
-  type : "String",
+  type : String,
   }
 },
 {
   timestamps : true
 })
 followSchema.index(
-  {follower: 1, followee : 1}, {unique: true}
+  {Follower: 1, Followee : 1}, {unique: true}
 )
 
 const followModel = mongoose.model("follows" , followSchema)
