@@ -11,6 +11,7 @@ A production-ready REST API built with Node.js, Express.js, and MongoDB, replica
 -  Create, fetch, and manage posts
 -  Like / Unlike posts
 -  Follow / Unfollow users
+-  Follow request (send, accept, reject)
 -  MongoDB with Mongoose ODM (MVC architecture)
 
 ---
